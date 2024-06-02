@@ -1,6 +1,7 @@
 import { Schema, model } from "mongoose";
 
-const ProductSchema = new Schema({
+const BasketSchema = new Schema({
+  author: { type: Schema.ObjectId, ref: "User", required: true },
   img: { type: Array, required: true },
   description: { type: String, required: true },
   price: { type: Number, required: true },
@@ -9,6 +10,6 @@ const ProductSchema = new Schema({
   topProducts: { type: Boolean, default: false },
 });
 
-const Product = model("Product", ProductSchema);
+const Basket = model("Basket", BasketSchema);
 
-export default Product;
+export default Basket;

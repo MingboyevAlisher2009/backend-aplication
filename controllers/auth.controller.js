@@ -37,7 +37,8 @@ export const login = async (req, res) => {
   }
 
   try {
-    const data = await User.find({ email });
+    const data = await User.findOne({ email });
+    console.log(data._id);
     const token = generationJwtToken(data._id);
     res.status(201).json({ message: "Login succsessfuly", token });
   } catch (error) {
